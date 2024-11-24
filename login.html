@@ -8,14 +8,27 @@
 </head>
 <body>
     <h2>Login</h2>
-    <form action="dashboard.html" method="get">
-        <label for="role">Select Role:</label>
+    <form id="login-form">
+        <label for="role">Pilih Peran:</label>
         <select id="role" name="role">
             <option value="guru">Guru</option>
             <option value="siswa">Siswa</option>
         </select>
         <br><br>
-        <button type="submit">Login</button>
+        <button type="button" onclick="navigateToDashboard()">Login</button>
+    </form>
+    
+    <script>
+        function navigateToDashboard() {
+            const role = document.getElementById('role').value;
+            if (role === 'guru') {
+                window.location.href = 'dashboard.html';
+            } else if (role === 'siswa') {
+                window.location.href = 'student-dashboard.html';
+            }
+        }
+    </script>
+    
     </form>
 </body>
 </html>
