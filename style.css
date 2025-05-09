@@ -28,53 +28,64 @@ a:hover {
     color: #0056b3;
 }
 
-.carousel-container {
-    width: 100%;
-    height: 400px; /* Set the height of the carousel */
-    overflow: hidden;
+.carousel-background {
     position: relative;
-    background-color: #000; /* Solid background color (black) for better contrast */
-    margin-top: 20px;
-    border-radius: 10px; /* Optional: Rounded corners for a polished look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+    width: 100%;
+    height: 100vh; /* Full screen height */
+    overflow: hidden;
 }
 
-.carousel img {
-    width: 100%; /* Each image takes up 100% of the container */
-    height: 100%; /* Match image height to the container */
-    object-fit: cover; /* Ensures the image fills the area without distortion */
-}
-
-/* Adjust the section below the carousel */
-section {
-    margin-top: 20px; /* Add spacing after the carousel */
-    padding: 20px;
-    background-color: #fff; /* Ensure a clean background for text */
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-carousel-overlay {
+.carousel-background::before {
+    content: '';
     position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
-    padding: 10px 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: backgroundSlide 12s infinite;
+    z-index: 1;
 }
 
-.carousel-overlay h2 {
+.carousel-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for text readability */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.carousel-overlay h1 {
+    font-size: 48px;
     margin: 0;
-    font-size: 24px;
 }
 
 .carousel-overlay p {
-    margin: 5px 0 0;
-    font-size: 16px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Background Image Animation */
+@keyframes backgroundSlide {
+    0% {
+        background-image: url('perpus.jpeg');
+    }
+    33% {
+        background-image: url('perpus.jpeg');
+    }
+    66% {
+        background-image: url('perpus.jpeg');
+    }
+    100% {
+        background-image: url('perpus.jpeg');
+    }
 }
 
 /* Navigation menu styles */

@@ -7,10 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-    <h1>Welcome to School Materials</h1>
-    <p>Guru dapat mengupload materi di sini, dan siswa bisa mencatat dari rumah.</p>
-</header>
 
 <!-- Navigation Menu -->
 <nav>
@@ -26,40 +22,11 @@
         </ul>
     </ul>
    </nav>
-    <!-- Image Carousel -->
-    <div class="carousel-container">
-        <div class="carousel">
-            <img src="perpus.jpeg" alt="Image 1">
-            <img src="image2.jpg" alt="Image 2">
-            <img src="image3.jpg" alt="Image 3">
-        </div>
+   <header class="carousel-background">
+    <div class="carousel-overlay">
+        <h1>Welcome to School Materials</h1>
+        <p>Learn and access educational materials with ease.</p>
     </div>
-
-    <section>
-        <h2>What We Offer</h2>
-        <p>Our platform provides easy access to course materials and notes.</p>
-    </section>
-
-    <script>
-        let currentIndex = 0;
-        const images = document.querySelectorAll('.carousel img');
-        const totalImages = images.length;
-
-        function showNextImage() {
-            images[currentIndex].style.display = 'none'; // Hide current image
-            currentIndex = (currentIndex + 1) % totalImages; // Move to the next image
-            images[currentIndex].style.display = 'block'; // Show next image
-        }
-
-        // Initialize the carousel to show the first image
-        images.forEach((img, index) => {
-            if (index !== currentIndex) {
-                img.style.display = 'none';
-            }
-        });
-
-        // Change the image every 3 seconds
-        setInterval(showNextImage, 3000);
-    </script>
+</header>
 </body>
 </html>
