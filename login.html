@@ -16,29 +16,29 @@
         <br><br>
         <button type="submit">Login</button>
     </form>
-    
+
     <script>
         function handleLogin(event) {
-            event.preventDefault(); // Prevent page refresh
-            
+            event.preventDefault(); // Prevent form submission
+
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
-            // Simulate a backend response
-            const mockBackendResponse = {
-                success: true,
-                role: email.endsWith('@student.example.com') ? 'student' : 'teacher'
-            };
+            // Get existing users from localStorage
+            const users = JSON.parse(localStorage.getItem('users')) || [];
 
-            // Redirect based on role
-            if (mockBackendResponse.success) {
-                if (mockBackendResponse.role === 'student') {
+            // Check credentials
+            const user = users.find(user => user.email === email && user.password === password);
+
+            if (user) {
+                alert(`Welcome, ${user.role}!`);
+                if (user.role === 'student') {
                     window.location.href = 'student-dashboard.html';
-                } else if (mockBackendResponse.role === 'teacher') {
-                    window.location.href = 'dashboard.html';
+                } else if (user.role === 'teacher') {
+                    window.location.href = 'teacher-dashboard.html';
                 }
             } else {
-                alert('Invalid email or password');
+                alert('Invalid email or password.');
             }
         }
     </script>
