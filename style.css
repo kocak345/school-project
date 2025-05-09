@@ -43,7 +43,8 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: flex-start; /* Aligns menu items to the left */
+    justify-content: space-between; /* Spreads out items evenly */
+    width: 100%; /* Ensures the ul takes up the full width */
 }
 
 nav ul li {
@@ -58,11 +59,12 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
-/* Align login and register to the right */
-nav ul li:last-child {
-    margin-left: auto; /* This pushes the last two items to the right */
+/* Align the login and register links to the right */
+nav ul .right {
+    margin-left: auto; /* Pushes the right-aligned items to the right */
 }
 
+/* Hover effect for links */
 nav ul li a:hover {
     color: #ff9900; /* Tesla-like hover color */
 }
