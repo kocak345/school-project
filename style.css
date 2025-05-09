@@ -43,7 +43,7 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Aligns menu items to the left */
 }
 
 nav ul li {
@@ -56,6 +56,11 @@ nav ul li a {
     padding: 10px;
     display: inline-block;
     transition: color 0.3s ease;
+}
+
+/* Align login and register to the right */
+nav ul li:last-child {
+    margin-left: auto; /* This pushes the last two items to the right */
 }
 
 nav ul li a:hover {
