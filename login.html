@@ -4,31 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h2>Login</h2>
-    <form id="login-form">
-        <label for="role">Pilih Peran:</label>
-        <select id="role" name="role">
-            <option value="guru">Guru</option>
-            <option value="siswa">Siswa</option>
-        </select>
+    <form id="login-form" onsubmit="handleLogin(event)">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
         <br><br>
-        <button type="button" onclick="navigateToDashboard()">Login</button>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+        <button type="submit">Login</button>
     </form>
     
     <script>
-        function navigateToDashboard() {
-            const role = document.getElementById('role').value;
-            if (role === 'guru') {
-                window.location.href = 'dashboard.html';
-            } else if (role === 'siswa') {
-                window.location.href = 'student-dashboard.html';
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent page refresh
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Simulate a backend response
+            const mockBackendResponse = {
+                success: true,
+                role: email.endsWith('@student.example.com') ? 'student' : 'teacher'
+            };
+
+            // Redirect based on role
+            if (mockBackendResponse.success) {
+                if (mockBackendResponse.role === 'student') {
+                    window.location.href = 'student-dashboard.html';
+                } else if (mockBackendResponse.role === 'teacher') {
+                    window.location.href = 'dashboard.html';
+                }
+            } else {
+                alert('Invalid email or password');
             }
         }
     </script>
-    
-    </form>
 </body>
 </html>
