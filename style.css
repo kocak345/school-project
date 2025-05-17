@@ -75,16 +75,16 @@ a:hover {
 /* Background Image Animation */
 @keyframes backgroundSlide {
     0% {
-        background-image: url('perpus.jpeg');
+        background-image: url('background.png');
     }
     33% {
-        background-image: url('perpus.jpeg');
+        background-image: url('background.png');
     }
     66% {
-        background-image: url('perpus.jpeg');
+        background-image: url('background.png');
     }
     100% {
-        background-image: url('perpus.jpeg');
+        background-image: url('background.png');
     }
 }
 
