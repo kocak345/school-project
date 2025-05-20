@@ -1,8 +1,83 @@
+/* Base styles for all devices */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #333;
+}
+
+nav ul li {
+    padding: 10px 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.login-container, .register-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .login-container, .register-container {
+        width: 90%;
+        margin: 20px auto;
+    }
+}
+
+@media (min-width: 769px) {
+    .login-container, .register-container {
+        max-width: 400px;
+        margin: 50px auto;
+    }
 }
 
 header {
@@ -94,21 +169,18 @@ a:hover {
 
 /* Navigation menu styles */
 nav {
-    background-color: #333;
-    position: fixed;
-    top: 0;
     width: 100%;
+    background: #333; /* Dark background for menu */
+    color: white;
     padding: 10px 0;
-    z-index: 1000;
 }
 
 nav ul {
+    display: flex;
+    justify-content: center;
     list-style-type: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: space-between; /* Spreads out items evenly */
-    width: 100%; /* Ensures the ul takes up the full width */
 }
 
 nav ul li {
@@ -116,24 +188,98 @@ nav ul li {
 }
 
 nav ul li a {
+    text-decoration: none;
     color: white;
     font-size: 18px;
+}
+
+nav ul.right {
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+/* Login Form */
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+}
+
+.login-container form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.login-container form input {
+    width: 90%;
     padding: 10px;
-    display: inline-block;
-    transition: color 0.3s ease;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-/* Align the login and register links to the right */
-nav ul .right {
-    margin-left: auto; /* Pushes the right-aligned items to the right */
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-/* Hover effect for links */
-nav ul li a:hover {
-    color: #ff9900; /* Tesla-like hover color */
+.login-container button:hover {
+    background: #555;
 }
 
-/* Ensure content is not hidden behind the fixed navbar */
-body {
-    padding-top: 50px; /* Adjust this value as needed */
+/* Register Form */
+.register-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.register-container h2 {
+    margin-bottom: 20px;
+}
+
+.register-container form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.register-container form input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.register-container button {
+    width: 100%;
+    padding: 10px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.register-container button:hover {
+    background: #555;
 }

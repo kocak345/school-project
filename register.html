@@ -3,51 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Register</h2>
-    <form id="register-form" onsubmit="handleRegister(event)">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <br><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <br><br>
-        <label for="role">Select Role:</label>
-        <select id="role" name="role" required>
-            <option value="student">Student</option>
-            <option value="teacher">Teacher</option>
-        </select>
-        <br><br>
-        <button type="submit">Register</button>
-    </form>
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <ul class="right">
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </ul>
+    </nav>
 
-    <script>
-        function handleRegister(event) {
-            event.preventDefault(); // Prevent form submission
+    <!-- Register Form -->
+    <div class="register-container">
+        <h2>Register</h2>
+        <form id="register-form">
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required placeholder="Enter your email">
+  <br><br>
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required placeholder="Enter your password">
+  <br><br>
+  <label for="confirm-password">Confirm Password:</label>
+  <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirm your password">
+  <br><br>
+  <button type="button" onclick="handleRegister()">Register</button>
+</form>
 
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const role = document.getElementById('role').value;
+<script>
+   function handleRegister() {
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
 
-            // Get existing users from localStorage
-            const users = JSON.parse(localStorage.getItem('users')) || [];
-
-            // Check if email is already registered
-            const existingUser = users.find(user => user.email === email);
-            if (existingUser) {
-                alert('Email is already registered.');
+            if (!email || !password) {
+                alert("Please fill in all fields.");
                 return;
             }
 
-            // Add new user to the list
-            users.push({ email, password, role });
-            localStorage.setItem('users', JSON.stringify(users));
+            // Fetch users from localStorage or initialize as empty
+            let users = JSON.parse(localStorage.getItem("users")) || [];
 
-            alert('Registration successful! You can now log in.');
-            window.location.href = 'login.html';
+            // Check if email already exists
+            const userExists = users.some(user => user.email.toLowerCase() === email.toLowerCase());
+            if (userExists) {
+                alert("This email is already registered.");
+                return;
+            }
+
+            // Add the new user as a student
+            users.push({ email, password, role: "student" });
+            localStorage.setItem("users", JSON.stringify(users));
+
+            alert("Registration successful! You can now log in.");
+            window.location.href = "login.html"; // Redirect to login page
         }
-    </script>
+</script>
 </body>
 </html>
