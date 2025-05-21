@@ -229,12 +229,19 @@ nav ul li a:hover {
         display: block; /* Visible on smaller screens */
     }
 
-    #menu {
-        display: none; /* Hide menu initially on small screens */
-        flex-direction: column;
-        width: 100%; /* Full-width menu */
-        background-color: #333;
-    }
+   #menu {
+    display: none;
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+}
+
+#menu.show {
+    display: flex;
+}
 
     #menu li {
         margin: 5px 0;

@@ -3,18 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guru Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Teacher's Dashboard</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Menu Styling */
+        nav {
+            background-color: #161718;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav .menu a:hover {
+            color: #d0e8ff;
+        }
+
+        nav .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Responsive Menu */
+        @media (max-width: 768px) {
+            nav .menu {
+                display: none;
+                flex-direction: column;
+                background-color: #007BFF;
+                position: absolute;
+                top: 50px;
+                right: 20px;
+                border-radius: 5px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            nav .menu.show {
+                display: flex;
+            }
+
+            nav .hamburger {
+                display: block;
+            }
+        }
+
+        /* Dashboard Content Styling */
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - 70px); /* Adjust for menu height */
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin-bottom: 20px;
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .links {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .links a {
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .links a:hover {
+            color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h2>Upload Materi PPT</h2>
-    <form action="https://github.com/kocak345/school-project.git" method="post" enctype="multipart/form-data">
-        <label for="ppt">Upload PPT File:</label>
-        <input type="file" id="ppt" name="pptFile" accept=".ppt,.pptx" required>
-        <button type="submit">Upload</button>
-    </form>
-    <br>
-    <a href="index.html">Back to Home</a>
-    <a href="upload.html">Upload(klik disini)</a>
+    <!-- Navigation Menu -->
+    <nav>
+        <div>Guru Dashboard</div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <div class="menu" id="menu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="content">
+        <h2>Upload Materi PPT</h2>
+        <form>
+            <label for="ppt">Upload PPT File:</label>
+            <input type="file" id="ppt" name="pptFile" accept=".ppt,.pptx" required>
+            <button type="submit">Upload</button>
+        </form>
+        <div class="links">
+            <a href="index.html">Back to Home</a>
+            <a href="upload.html">Upload (klik disini)</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            menu.classList.toggle("show");
+        }
+    </script>
 </body>
 </html>
